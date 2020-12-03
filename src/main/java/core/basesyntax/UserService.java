@@ -8,10 +8,8 @@ public class UserService {
 
         for (String string : records) {
             String[] temporaryArray = string.split(":");
-            String userEmail = String.valueOf(temporaryArray[0]);
-            int userScore = Integer.parseInt(temporaryArray[1]);
-            if (userEmail.equals(email)) {
-                return userScore;
+            if (temporaryArray[0].equals(email)) {
+                return Integer.parseInt(temporaryArray[1]);
             }
         }
         throw new UserNotFoundException("User with given email doesn't exist");
